@@ -1,0 +1,27 @@
+
+
+.todo-navigationbar-session {
+    display: flex;
+    align-items: center;
+}
+
+.todo-navigationbar-session p {
+    margin: 0 8px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.todo-navigationbar-session a {
+    color: aliceblue;
+    text-decoration: none;
+    margin: 8px;
+}
+
+.todo-navigationbar-session a:hover {
+    text-decoration: underline;
+}
+
+.todo-navigationbar-session svg {
+    fill: aliceblue;
+    width: 30px;
+}
