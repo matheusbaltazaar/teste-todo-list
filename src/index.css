@@ -2,6 +2,9 @@
 
 :root {
   --color-primary: #821;
+  --color-primary-dark: rgb(112, 27, 12);
+  --color-primary-haze: #88231146;
+  --navigation-bar-height: 92px;
 }
 
 * {
@@ -12,3 +15,4 @@
 html, body {
   background-color: #DDD;
 }
+

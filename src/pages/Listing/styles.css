@@ -1,0 +1,52 @@
+.todo-listing-container {
+    background-color: var(--color-primary-haze);
+    height: calc(100vh - var(--navigation-bar-height));
+    overflow: auto;
+}
+
+.todo-listing-content {
+}
+
+.todo-listing-card-lista {
+}
+
+.todo-listing-header {
+    display: flex;
+    align-items: center;
+    
+    height: 64px;
+    background-color: var(--color-primary);
+
+    border-top: 1px solid #AAA;
+}
+
+.todo-listing-header p {
+    margin: 0 12px 0 36px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.todo-listing-button, .todo-listing-button:focus {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+.todo-listing-button:hover {
+    background-color: whitesmoke;
+    color: var(--color-primary);
+}
+
+.todo-listing-button svg {
+    height: 16px;
+    fill: var(--color-primary);
+}
+
+.row {
+    padding: 8px;
+}
+
+.todo-listing-divider {
+    width: 90%;
+}
+

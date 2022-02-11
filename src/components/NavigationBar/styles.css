@@ -7,7 +7,7 @@
 
 .todo-navigationbar-container {
     display: flex;
-    height: 92px;
+    height: var(--navigation-bar-height);
     align-items: center;
     justify-content: space-between;
 }
