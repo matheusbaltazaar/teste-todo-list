@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Tarefa } from 'types/model';
-import { ReactComponent as CheckIcon } from 'assets/img/checked.svg'
-import { ReactComponent as CloseIcon } from 'assets/img/close.svg'
 import './styles.css'
 
 type Props = {
@@ -38,9 +36,9 @@ function TarefaItemCard({ tarefa }: Props) {
 
     const buttonCheckStyle = () => {
         if (isChecked) {
-            return "btn todo-tarefa-card-checkbutton-checked"
+            return "btn mr-2 button-check"
         } else {
-            return "btn todo-tarefa-card-checkbutton"
+            return "btn button-check-outline"
         }
     }
 
@@ -52,12 +50,11 @@ function TarefaItemCard({ tarefa }: Props) {
 
             <div className="todo-tarefa-card-button-container">
                 <button id={`${tarefa.id}`} className={buttonCheckStyle()}
-                    onClick={() => handleCheckChange()}>
-                    <CheckIcon />
-                </button>
-                <button className="btn todo-tarefa-card-button"
+                    onClick={() => handleCheckChange()}><i className="fa-solid fa-check" /></button>
+
+                <button className="btn button-check"
                     onClick={() => handleDelete()}>
-                    <CloseIcon />
+                    <i className="fa-solid fa-close" />
                 </button>
             </div>
 

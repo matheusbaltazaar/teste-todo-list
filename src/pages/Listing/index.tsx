@@ -1,5 +1,4 @@
 import { Usuario } from "types/model";
-import { ReactComponent as PlusIcon } from 'assets/img/plus.svg'
 import { Plock } from "react-plock";
 import './styles.css'
 import ListaCard from "components/ListaCard";
@@ -32,12 +31,12 @@ function Listing({ usuario }: Props) {
                 <p>Minhas tarefas</p>
 
                 <button className="btn btn-secondary todo-listing-button" onClick={() => alert("cliquei aqui")}>
-                    <PlusIcon /> &nbsp;Adicionar Lista
+                    <i className="fa-solid fa-plus" />&nbsp;&nbsp;Adicionar Lista
                 </button>
             </div>
 
 
-            <div style={{padding: containerPadding}}>
+            <div style={{ padding: containerPadding }}>
                 <Plock gap={20} nColumns={layoutConfig}>
                     { /* MAPPING DAS LISTAS EXISTENTES 
                         listaDeTarefas.map(i => {
@@ -51,7 +50,7 @@ function Listing({ usuario }: Props) {
                     <ListaCard count={1} />
                     <ListaCard count={3} />
                     <ListaCard count={8} />
-                    
+
                     <ListaCard count={3} />
                     <ListaCard count={5} />
                     <ListaCard count={1} />

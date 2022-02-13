@@ -1,5 +1,5 @@
 .todo-tarefa-card-container {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 
     padding: 8px;
@@ -12,14 +12,8 @@
 .todo-tarefa-card-button-container {
     display: flex;
     margin-bottom: 4px;
+    gap: 8px;
     
-}
-.todo-tarefa-card-label {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-
-    font-size: small;
 }
 
 .todo-tarefa-card-label-checked {
@@ -32,72 +26,41 @@
     font-weight: 700;
 }
 
-
-/*
-width: 20px;
-height: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-background-color: aqua;
-cursor: pointer; */
-
-.todo-tarefa-card-checkbutton {
-    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    border: 1px solid gray;
-    
-    width: 24px;
-    height: 24px;
-    
+.button-check  {
+    width: 26px;
     padding: 0;
-    margin: 0 4px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    border: solid 2.2px var(--color-primary);
+    
+    color: white;
 }
 
-.todo-tarefa-card-checkbutton svg {
-    width: 30px;
-    fill: var(--color-primary);
-    padding: 0 8px 8px 0;
+.button-check:hover {
+    color: white;
 }
 
-.todo-tarefa-card-checkbutton-checked {
-    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    border: 1px solid gray;
-    
-    width: 24px;
-    height: 24px;
-    
+.button-check-outline  {
+    width: 26px;
+    background-color: white;
+    border-radius: 50%;
     padding: 0;
-    margin: 0 4px;
-
-    background-color: var(--color-primary-haze);
-}
-
-.todo-tarefa-card-checkbutton-checked svg {
-    width: 30px;
-    fill: var(--color-primary);
-    padding: 0 8px 8px 0;
-}
-
-.todo-tarefa-card-button {
-    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    border: 1px solid gray;
+    border: solid 2.2px var(--color-primary);
     
-    width: 24px;
-    height: 24px;
-
-    text-decoration: line-through;
-    
-    padding: 0;
-    margin: 0 4px;
+    color: var(--color-primary);
 }
 
-.todo-tarefa-card-button svg {
-    width: 23px;
-    fill: var(--color-primary);
-    padding: 3px 6px 6px 5px;
+.button-check-outline:hover {
+    background-color: #EEE;
+    color: var(--color-primary);
 }
 
 
+.todo-tarefa-card-label {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+
+    font-size: small;
+}
