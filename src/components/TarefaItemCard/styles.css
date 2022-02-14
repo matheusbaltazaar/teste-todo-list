@@ -6,14 +6,9 @@
     margin-bottom: 8px;
 
     display: flex;
-    flex-direction: column;
-}
-
-.todo-tarefa-card-button-container {
-    display: flex;
-    margin-bottom: 4px;
-    gap: 8px;
-    
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
 }
 
 .todo-tarefa-card-label-checked {
@@ -26,6 +21,9 @@
     font-weight: 700;
 }
 
+.button-check svg {
+    width: 23px;
+}
 .button-check  {
     width: 26px;
     padding: 0;
@@ -43,6 +41,7 @@
 
 .button-check-outline  {
     width: 26px;
+    min-width: 26px;
     background-color: white;
     border-radius: 50%;
     padding: 0;

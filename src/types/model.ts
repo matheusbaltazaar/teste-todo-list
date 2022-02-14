@@ -14,17 +14,18 @@ export type Categoria = {
 
 // lista
 export type Lista = {
-    id?:number,
+    id:number,
     nome?:string,
     categoriaId?:number,
     concluida?:boolean,
+    usuarioId: number
 }
 
 // tarefa
 export type Tarefa = {
     id?:number,
-    listaId?:number,
+    listaId:number,
     nome?:string,
-    concluida?:boolean,
-    usuarioId?:number
+    concluida:boolean,
+    usuarioId:number
 }

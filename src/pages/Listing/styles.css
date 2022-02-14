@@ -4,12 +4,6 @@
     overflow: auto;
 }
 
-.todo-listing-content {
-}
-
-.todo-listing-card-lista {
-}
-
 .todo-listing-header {
     display: flex;
     align-items: center;
@@ -42,11 +36,15 @@
     fill: var(--color-primary);
 }
 
-.row {
-    padding: 8px;
+.todo-listing-form-card-nova-lista-show {
+    display: inherit;
+}
+.todo-listing-form-card-nova-lista-hide {
+    display: none;
 }
 
-.todo-listing-divider {
-    width: 90%;
+.todo-lista-card-footer {
+    display: flex;
+    gap: 8px;
 }
 

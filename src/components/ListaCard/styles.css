@@ -19,6 +19,30 @@
     margin: 0 12px 0 12px;
 }
 
+.todo-lista-card-nova-tarefa {
+    box-shadow: 0 2px 4px 1px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    
+    padding: 12px;
+}
+
+.todo-lista-form-card-nova-tarefa-show {
+    display: inherit;
+}
+
+.todo-lista-form-card-nova-tarefa-hide {
+    display: none;
+}
+
+.todo-lista-card-nova-tarefa textarea {
+    resize: none;
+}
+
+.todo-lista-card-nova-tarefa-button-group {
+    display: flex;
+    gap: 4px;
+}
+
 .todo-lista-card-footer {
     margin: 12px;
 }

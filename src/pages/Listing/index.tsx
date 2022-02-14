@@ -1,19 +1,15 @@
-import { Usuario } from "types/model";
+import { Lista, Usuario } from "types/model";
 import { Plock } from "react-plock";
 import './styles.css'
 import ListaCard from "components/ListaCard";
+import { addNovaLista, getAllListasByUsuarioId } from "storage/data/lista";
+import { useState } from "react";
 
 type Props = {
     usuario: Usuario;
 }
 
 function Listing({ usuario }: Props) {
-
-    const count = 10
-    const listaDeTarefas = []
-    for (let i = 0; i < count; i++) {
-        listaDeTarefas.push(i)
-    }
 
     const containerPadding = 16; // 
     const layoutConfig = [ // A partir do size X (px), use Y colunas
@@ -24,13 +20,44 @@ function Listing({ usuario }: Props) {
         { size: 1320 - (containerPadding * 2), columns: 4 },
     ];
 
+
+    const [isListCreating, setListCreating] = useState(false)
+
+    const listaDeTarefas = getAllListasByUsuarioId(usuario.id!!);
+
+    const toggleCardNovaLista = () => {
+        return isListCreating ? "todo-listing-form-card-nova-lista-show"
+            : "todo-listing-form-card-nova-lista-hide"
+    }
+
+    const handleCriarLista = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const nomeLista = (event.target as any).nomelista.value
+
+        const novaLista: Lista = {
+            id: 0,
+            usuarioId: usuario.id!!,
+            nome: nomeLista,
+            concluida: false,
+        }
+
+        addNovaLista(novaLista);
+        setListCreating(false);
+        (event.target as any).reset();
+
+        console.log("Listing > index.tsx : handleCriarLista | Lista criada!");
+    }
+
+
+
     return (
         <div className="todo-listing-container">
 
             <div className="todo-listing-header">
                 <p>Minhas tarefas</p>
 
-                <button className="btn btn-secondary todo-listing-button" onClick={() => alert("cliquei aqui")}>
+                <button disabled={isListCreating} className="btn btn-secondary todo-listing-button" onClick={() => setListCreating(true)}>
                     <i className="fa-solid fa-plus" />&nbsp;&nbsp;Adicionar Lista
                 </button>
             </div>
@@ -38,22 +65,31 @@ function Listing({ usuario }: Props) {
 
             <div style={{ padding: containerPadding }}>
                 <Plock gap={20} nColumns={layoutConfig}>
-                    { /* MAPPING DAS LISTAS EXISTENTES 
-                        listaDeTarefas.map(i => {
+                    {
+                        listaDeTarefas.map(lista => {
                             return (
-                                <ListaCard count={3} />
+                                <ListaCard key={lista.id} listaDeTarefas={lista} />
                             )
                         })
-                        */
                     }
 
-                    <ListaCard count={1} />
-                    <ListaCard count={3} />
-                    <ListaCard count={8} />
+                    <form className={toggleCardNovaLista()} onSubmit={handleCriarLista}>
+                        <div className="todo-lista-card">
 
-                    <ListaCard count={3} />
-                    <ListaCard count={5} />
-                    <ListaCard count={1} />
+
+                            <div className="todo-lista-card-header">
+                                <input type="text" id="nomelista" required={true} className="form-control" />
+                            </div>
+
+
+                            <div className="mt-2 todo-lista-card-footer">
+                                <button className="btn btn-sm todo-lista-card-button">Adicionar</button>
+                                <button type="reset" onClick={() => { setListCreating(false) }}
+                                    className="btn btn-sm"><i className="fa-solid fa-close" /></button>
+                            </div>
+
+                        </div>
+                    </form>
                 </Plock>
             </div>
 

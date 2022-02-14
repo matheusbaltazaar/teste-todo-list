@@ -3,7 +3,7 @@ import { Usuario } from "types/model";
 const USERS = "MY_USERS"
 
 function gerarId(): number {
-    return Math.floor(Math.random() * 100);
+    return Math.floor(Math.random() * 1000);
 }
 
 export function getAllUsuarios(): Usuario[] {

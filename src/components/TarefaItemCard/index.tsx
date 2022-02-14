@@ -1,30 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { atualizarTarefa, excluirTarefa } from 'storage/data/tarefa';
 import { Tarefa } from 'types/model';
 import './styles.css'
 
 type Props = {
     tarefa: Tarefa
 }
+
 function TarefaItemCard({ tarefa }: Props) {
 
-    const [isChecked, setChecked] = useState<boolean>(tarefa.concluida ?? false)
+    const [isChecked, setChecked] = useState<boolean>(tarefa.concluida)
 
     const handleCheckChange = () => {
-        setChecked(!isChecked)
 
-        tarefa.concluida = isChecked
-        // PERSISTIR TAREFA
+        tarefa.concluida = !tarefa.concluida
+        atualizarTarefa(tarefa)
+
+        setChecked(tarefa.concluida)
     }
 
     const handleDelete = () => {
-        // DELETAR TAREFA
-        alert("Deletei a tarefa!")
+        excluirTarefa(tarefa)
     }
-
-    useEffect(() => {
-        // Observar o estado isChecked
-    }, [isChecked])
-
 
     const labelCheckStyle = () => {
         if (isChecked) {
@@ -36,7 +33,7 @@ function TarefaItemCard({ tarefa }: Props) {
 
     const buttonCheckStyle = () => {
         if (isChecked) {
-            return "btn mr-2 button-check"
+            return "btn button-check"
         } else {
             return "btn button-check-outline"
         }
@@ -45,22 +42,23 @@ function TarefaItemCard({ tarefa }: Props) {
 
 
     return (
+        <form>
+            <div className="todo-tarefa-card-container">
 
-        <div className="todo-tarefa-card-container">
 
-            <div className="todo-tarefa-card-button-container">
-                <button id={`${tarefa.id}`} className={buttonCheckStyle()}
-                    onClick={() => handleCheckChange()}><i className="fa-solid fa-check" /></button>
+                <label onClick={() => handleCheckChange()} className={labelCheckStyle()}>
+                    <button type="button" className={buttonCheckStyle()}
+                        onClick={() => handleCheckChange()}><i className="fa-solid fa-check" /></button>
+                    &nbsp;&nbsp;{tarefa.nome}
+                </label>
 
-                <button className="btn button-check"
+                <button type="submit" className="btn button-check"
                     onClick={() => handleDelete()}>
-                    <i className="fa-solid fa-close" />
+                    <i className="fa-solid fa-trash" />
                 </button>
-            </div>
 
-            <label htmlFor={`${tarefa.id}`} className={labelCheckStyle()}>Esta é uma tarefa.</label>
-
-        </div >
+            </div >
+        </form>
     );
 }
 
