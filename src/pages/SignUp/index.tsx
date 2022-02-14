@@ -59,6 +59,7 @@ function SignUp({ session }: Props) {
         novoUsuario.senha = senha
 
         adicionarUsuario(novoUsuario);
+        alert("Tudo certo! Novo usuário cadastrado =)")
 
         navigate("/")
     }
